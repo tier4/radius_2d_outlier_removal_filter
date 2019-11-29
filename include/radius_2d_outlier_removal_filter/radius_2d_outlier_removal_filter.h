@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef CYLINDER_SEARCH_FILTER_H_
-#define CYLINDER_SEARCH_FILTER_H_
+#ifndef RADIUS_2D_OUTLIER_REMOVAL_FILTER_H_
+#define RADIUS_2D_OUTLIER_REMOVAL_FILTER_H_
 
 #include <ros/ros.h>
 #include <ros/names.h>
@@ -25,12 +25,12 @@
 #include <pcl/filters/radius_outlier_removal.h>
 #include <pcl/filters/extract_indices.h>
 
-namespace cylinder_search_filter
+namespace radius_2d_outlier_removal_filter
 {
-class CylinderSearchFilter : public pcl_ros::PCLNodelet
+class Radius2dOutlierRemovalFilter : public pcl_ros::PCLNodelet
 {
 public:
-  CylinderSearchFilter();
+  Radius2dOutlierRemovalFilter();
 
 protected:
   ros::Subscriber input_subscriber_;
@@ -46,6 +46,6 @@ private:
   int min_neighbors_ = 0;
   double radius_search_ = 0.0;
 };
-}  // namespace cylinder_search_filter
+}  // namespace radius_2d_outlier_removal_filter
 
-#endif  // CYLINDER_SEARCH_FILTER_H_
+#endif  // RADIUS_2D_OUTLIER_REMOVAL_FILTER_H_

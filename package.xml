@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>cylinder_search_filter</name>
+  <name>radius_2d_outlier_removal_filter</name>
   <version>0.0.0</version>
-  <description>The cylinder_search_filter package</description>
+  <description>The radius_2d_outlier_removal_filter package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/cylinder_search_filter</url> -->
+  <!-- <url type="website">http://wiki.ros.org/radius_2d_outlier_removal_filter</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -60,6 +60,6 @@
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
-    <nodelet plugin="${prefix}/cylinder_search_filter.xml" />
+    <nodelet plugin="${prefix}/radius_2d_outlier_removal_filter.xml" />
   </export>
 </package>

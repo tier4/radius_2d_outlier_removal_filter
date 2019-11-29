@@ -1,4 +1,0 @@
-<library path="lib/libcylinder_search_filter">
-  <class name="cylinder_search_filter/CylinderSearchFilter" type="cylinder_search_filter::CylinderSearchFilter" base_class_type="nodelet::Nodelet" >
-  </class>
-</library>

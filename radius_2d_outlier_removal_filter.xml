@@ -1,0 +1,4 @@
+<library path="lib/libradius_2d_outlier_removal_filter">
+  <class name="radius_2d_outlier_removal_filter/Radius2dOutlierRemovalFilter" type="radius_2d_outlier_removal_filter::Radius2dOutlierRemovalFilter" base_class_type="nodelet::Nodelet" >
+  </class>
+</library>

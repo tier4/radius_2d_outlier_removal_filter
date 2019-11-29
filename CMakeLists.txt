@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(cylinder_search_filter)
+project(radius_2d_outlier_removal_filter)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -103,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES cylinder_search_filter
+#  LIBRARIES radius_2d_outlier_removal_filter
 #  CATKIN_DEPENDS pcl_ros
 #  DEPENDS system_lib
 )
@@ -121,11 +121,11 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-  src/cylinder_search_filter.cpp
+  src/radius_2d_outlier_removal_filter.cpp
 )
 
 roslint_cpp(
-  src/cylinder_search_filter.cpp
+  src/radius_2d_outlier_removal_filter.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -136,7 +136,7 @@ roslint_cpp(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/cylinder_search_filter_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/radius_2d_outlier_removal_filter_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -190,8 +190,8 @@ install(TARGETS ${PROJECT_NAME}
 # )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-install(DIRECTORY
-  share/
+install(FILES
+  radius_2d_outlier_removal_filter.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
@@ -200,7 +200,7 @@ install(DIRECTORY
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_cylinder_search_filter.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_radius_2d_outlier_removal_filter.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

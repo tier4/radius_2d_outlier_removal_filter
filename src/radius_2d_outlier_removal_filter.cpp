@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-#include "cylinder_search_filter/cylinder_search_filter.h"
+#include "radius_2d_outlier_removal_filter/radius_2d_outlier_removal_filter.h"
 #include <vector>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pluginlib/class_list_macros.h>
 
 
-namespace cylinder_search_filter
+namespace radius_2d_outlier_removal_filter
 {
-CylinderSearchFilter::CylinderSearchFilter()
+Radius2dOutlierRemovalFilter::Radius2dOutlierRemovalFilter()
 {
   kd_tree_ = boost::make_shared<pcl::search::KdTree<pcl::PointXY> >(false);
 }
 
-void CylinderSearchFilter::onInit(void)
+void Radius2dOutlierRemovalFilter::onInit(void)
 {
   PCLNodelet::onInit();
 
   // Define topics
-  input_subscriber_ = pnh_->subscribe("input", 1, &CylinderSearchFilter::filter, this);
+  input_subscriber_ = pnh_->subscribe("input", 1, &Radius2dOutlierRemovalFilter::filter, this);
   output_publisher_ = pnh_->advertise<sensor_msgs::PointCloud2>("output", 1);
 
   // Get parameters
@@ -44,7 +44,7 @@ void CylinderSearchFilter::onInit(void)
   radius_outlier_removal_.setRadiusSearch(radius_search_);
 }
 
-void CylinderSearchFilter::filter(const sensor_msgs::PointCloud2 input)
+void Radius2dOutlierRemovalFilter::filter(const sensor_msgs::PointCloud2 input)
 {
   int numInputPoints = input.height * input.width;
   std::vector<int> nn_indices(numInputPoints);
@@ -93,12 +93,12 @@ void CylinderSearchFilter::filter(const sensor_msgs::PointCloud2 input)
   output.data.resize(output.width * output.point_step);
 
   // Publish
-  ROS_DEBUG("[CylinderSearchFilter::filter] Input size: %d, output size: %d", input.height * input.width,
+  ROS_DEBUG("[Radius2dOutlierRemovalFilter::filter] Input size: %d, output size: %d", input.height * input.width,
             output.height * output.width);
   output_publisher_.publish(output);
 }
 
-}  // namespace cylinder_search_filter
+}  // namespace radius_2d_outlier_removal_filter
 
-typedef cylinder_search_filter::CylinderSearchFilter CylinderSearchFilter;
-PLUGINLIB_EXPORT_CLASS(cylinder_search_filter::CylinderSearchFilter, nodelet::Nodelet);
+typedef radius_2d_outlier_removal_filter::Radius2dOutlierRemovalFilter Radius2dOutlierRemovalFilter;
+PLUGINLIB_EXPORT_CLASS(radius_2d_outlier_removal_filter::Radius2dOutlierRemovalFilter, nodelet::Nodelet);
