@@ -15,8 +15,10 @@
  */
 
 #include "cylinder_search_filter/cylinder_search_filter.h"
-#include <pluginlib/class_list_macros.h>
+#include <vector>
 #include <pcl_conversions/pcl_conversions.h>
+#include <pluginlib/class_list_macros.h>
+
 
 namespace cylinder_search_filter
 {

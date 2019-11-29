@@ -9,6 +9,7 @@ project(cylinder_search_filter)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   pcl_ros
+  roslint
 )
 
 ## System dependencies are found with CMake's conventions
@@ -120,6 +121,10 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
+  src/cylinder_search_filter.cpp
+)
+
+roslint_cpp(
   src/cylinder_search_filter.cpp
 )
 
